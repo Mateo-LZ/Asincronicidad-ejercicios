@@ -1,9 +1,9 @@
 // clima.js
-const apis = [
+const apis = [ //Array con dos objetos cada uno representa una API diferente 
   {
     name: "OpenMeteo",
     url: "https://api.open-meteo.com/v1/forecast?latitude=6.25184&longitude=-75.56359&current_weather=true",
-    parse: (data) => {
+    parse: (data) => { // funcion que transforma los datos de la API en un string
       return `Clima desde Open-Meteo: ${data.current_weather.temperature}°C, Viento ${data.current_weather.windspeed} km/h`;
     }
   },
@@ -19,20 +19,20 @@ const apis = [
 
 // Ejecutar consulta a todas las APIs, pero mostrar solo la primera que responda
 async function obtenerClima() {
-  const promesas = apis.map(api =>
-    fetch(api.url, {
+  const promesas = apis.map(api => // Creo un Array de promesas para cada API 
+    fetch(api.url, {   //hace un fecth a la url de la API
       headers: {
         'User-Agent': 'clima-app/1.0' // Necesario para Met.no
       }
     })
-      .then(res => res.json())
-      .then(data => api.parse(data))
-      .catch(err => `${api.name} falló: ${err.message}`)
+      .then(res => res.json())//convierte la respuesta a Json 
+      .then(data => api.parse(data))//procesa los datos con la funcion parse de cada API
+      .catch(err => `${api.name} falló: ${err.message}`)// si hay un error dentra al catch
   );
 
   try {
-    const resultado = await Promise.race(promesas);
-    console.log("Resultado más rápido:");
+    const resultado = await Promise.race(promesas);//promise.race basicamente da el resultado de la API la que sea mas rapida
+    console.log("Resultado más rápido:");// Await pausa la funcion async hasta que una promesa se cumpla y retorne el valor
     console.log(resultado);
   } catch (err) {
     console.error(" No se pudo obtener el clima:", err);

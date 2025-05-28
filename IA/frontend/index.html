@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prueba IAs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Prueba las IAs ✨</h1>
+        
+        <div class="form-container">
+            <form id="form-ia">
+                <label for="input-text">💭 Escribe tu pregunta:</label>
+                <textarea 
+                    id="input-text" 
+                    placeholder="¿Qué te gustaría preguntarle a las IAs? Por ejemplo: Explícame la inteligencia artificial..."
+                    required
+                ></textarea>
+                <button type="submit" class="submit-btn">🚀 Enviar Pregunta</button>
+                <button type="button" id="discord-btn" class="discord-btn">
+                <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord" class="discord-icon">
+                Enviar a Discord
+                </button>
+                <div id="discord-status" class="discord-status"></div>
+            </form>
+        </div>
+
+        <div id="results" class="results-section">
+            <h2 class="results-title">🤖 Respuestas de las IAs</h2>
+            
+            <div class="response-grid">
+                <div class="ai-card">
+                    <h3>
+                        <span class="ai-icon gemini-icon">G</span>
+                        Gemini
+                    </h3>
+                    <div id="response-gemini" class="response-content">
+                        <div class="empty-state">Esperando tu pregunta...</div>
+                    </div>
+                </div>
+                
+                <div class="ai-card">
+                    <h3>
+                        <span class="ai-icon cohere-icon">C</span>
+                        Cohere
+                    </h3>
+                    <div id="response-cohere" class="response-content">
+                        <div class="empty-state">Esperando tu pregunta...</div>
+                    </div>
+                </div>
+                
+                <div class="ai-card">
+                    <h3>
+                        <span class="ai-icon mistral-icon">M</span>
+                        Mistral
+                    </h3>
+                    <div id="response-mistral" class="response-content">
+                        <div class="empty-state">Esperando tu pregunta...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
