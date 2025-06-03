@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IA'S</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="background-animation">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+  </div>
+ 
+  <div class="container">
+    <header class="header">
+      <div class="header-icon">
+        <i class="fas fa-magic"></i>
+      </div>
+      <h1 class="title">IA'S</h1>
+      <p class="subtitle">Powered by Gemini & Cohere AI 🚀</p>
+    </header>
+ 
+    <div class="input-section">
+      <div class="input-container">
+        <textarea 
+          id="inputText"
+          placeholder="Ingresa el texto que deseas resumir..."
+          class="input-text"
+        ></textarea>
+        <div class="input-decoration"></div>
+      </div>
+             
+      <div class="button-group">
+        <button onclick="generateSummaries()" class="btn btn-primary">
+          <i class="fas fa-bolt"></i>
+          <span>Generar IA</span>
+        </button>
+      </div>
+    </div>
+ 
+    <div class="loader" id="loader">
+      <div class="loader-ring"></div>
+      <div class="loader-ring"></div>
+      <div class="loader-ring"></div>
+    </div>
+ 
+    <div class="results-section">
+      <div class="result-card gemini-card">
+        <div class="card-header">
+          <div class="card-icon gemini-icon">
+            <i class="fas fa-gem"></i>
+          </div>
+          <h3>Respuesta de Gemini</h3>
+        </div>
+        <div class="responseBox" id="responseGemini">
+          <div class="placeholder-text">
+            <i class="fas fa-comment-dots"></i>
+            <span>El resumen de Gemini aparecerá aquí</span>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="result-card cohere-card">
+        <div class="card-header">
+          <div class="card-icon cohere-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Respuesta de Cohere</h3>
+        </div>
+        <div class="responseBox" id="responseCohere">
+          <div class="placeholder-text">
+            <i class="fas fa-comment-dots"></i>
+            <span>El resumen de Cohere aparecerá aquí</span>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="result-card sentiment-card">
+        <div class="card-header">
+          <div class="card-icon sentiment-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Análisis de Sentimiento</h3>
+        </div>
+        <div class="responseBox" id="sentimentMessage">
+          <div class="placeholder-text">
+            <i class="fas fa-chart-line"></i>
+            <span>El análisis de sentimiento aparecerá aquí</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
